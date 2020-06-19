@@ -1,8 +1,11 @@
 load_spatial_inputs_0.5 = function(wd) 
 {
 
+  cat('Downloading zip from github repository')
   download.file(url = "https://github.com/SHoeks/MadingleyR_0.5degree_inputs/archive/master.zip", destfile = "0.5degree.zip"); 
+  cat('Extracting zip')
   unzip(zipfile = "0.5degree.zip")
+  cat('Reading rasters')
   rasters_path = paste0(wd,"/MadingleyR_0.5degree_inputs-master")
   
   if (!"rgdal" %in% installed.packages()[, "Package"]) {
