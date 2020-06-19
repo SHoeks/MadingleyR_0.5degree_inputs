@@ -79,6 +79,14 @@ load_spatial_inputs_0.5 = function(wd)
     cat(".")
   }
   cat("\n")
+  
+  # no max body mass raster available yet, setting single value
+  input$Ecto_max = input$Endo_C_max = input$Endo_H_max = input$Endo_O_max = input$land_mask
+  input$Ecto_max[] = 50000
+  input$Endo_C_max[] = 200000
+  input$Endo_H_max[] = 1000000
+  input$Endo_O_max[] = 500000
+  
   return(input)
 
 }
