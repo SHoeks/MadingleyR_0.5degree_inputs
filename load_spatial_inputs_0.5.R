@@ -5,10 +5,15 @@ load_spatial_inputs_0.5 = function(wd)
       cat('Downloading zip from github repository: ')
       download.file(url = "https://github.com/SHoeks/MadingleyR_0.5degree_inputs/archive/master.zip", destfile = "0.5degree.zip"); 
   }else{
-    cat('Zip already downloaded')
+    cat('Zip already downloaded \n')
   }
-  cat('Extracting zip \n')
-  unzip(zipfile = "0.5degree.zip")
+  if(!file.exists(paste0(wd,"/MadingleyR_0.5degree_inputs-master"))){
+      cat('Extracting zip \n')
+      unzip(zipfile = "0.5degree.zip")
+  }else{
+    cat('Zip already extracted \n')
+  }
+
   rasters_path = paste0(wd,"/MadingleyR_0.5degree_inputs-master")
 
   
