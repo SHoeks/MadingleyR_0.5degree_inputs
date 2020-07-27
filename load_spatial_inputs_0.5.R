@@ -4,21 +4,21 @@ load_spatial_inputs_0.5 = function(wd)
   if(substr(wd,(nchar(wd)+1)-1,nchar(wd))=='/')  wd=substr(wd,1,nchar(wd)-1)
   if(substr(wd,(nchar(wd)+1)-1,nchar(wd))=='\\') wd=substr(wd,1,nchar(wd)-1)
   
+  zip_path = paste0(wd,"/0.5degree.zip")
+  rasters_path = paste0(wd,"/MadingleyR_0.5degree_inputs-master")
+  
   if(!file.exists(paste0(wd,"/0.5degree.zip"))){
       cat('Downloading zip from github repository: ')
-      download.file(url = "https://github.com/SHoeks/MadingleyR_0.5degree_inputs/archive/master.zip", destfile = paste0(wd,"/0.5degree.zip")); 
+      download.file(url = "https://github.com/SHoeks/MadingleyR_0.5degree_inputs/archive/master.zip", destfile = zip_path); 
   }else{
     cat('Zip already downloaded \n')
   }
   if(!file.exists(paste0(wd,"/MadingleyR_0.5degree_inputs-master"))){
       cat('Extracting zip \n')
-      unzip(zipfile = paste0(wd,"/0.5degree.zip"))
+      unzip(zip_path)
   }else{
     cat('Zip already extracted \n')
   }
-
-  rasters_path = paste0(wd,"/MadingleyR_0.5degree_inputs-master")
-
   
   if (!"rgdal" %in% installed.packages()[, "Package"]) {
     stop("Package 'rgdal' not installed")
