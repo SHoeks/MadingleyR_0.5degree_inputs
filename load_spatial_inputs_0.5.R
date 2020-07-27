@@ -1,6 +1,9 @@
 load_spatial_inputs_0.5 = function(wd) 
 {
   
+  if(substr(wd,(nchar(wd)+1)-1,nchar(wd))=='/')  wd=substr(wd,1,nchar(wd)-1)
+  if(substr(wd,(nchar(wd)+1)-1,nchar(wd))=='\\') wd=substr(wd,1,nchar(wd)-1)
+  
   if(!file.exists(paste0(wd,"/0.5degree.zip"))){
       cat('Downloading zip from github repository: ')
       download.file(url = "https://github.com/SHoeks/MadingleyR_0.5degree_inputs/archive/master.zip", destfile = "0.5degree.zip"); 
