@@ -15,7 +15,8 @@ load_spatial_inputs_0.5 = function(wd)
   }
   if(!file.exists(paste0(wd,"/MadingleyR_0.5degree_inputs-master"))){
       cat('Extracting zip \n')
-      unzip(zip_path)
+      setwd(wd)
+      unzip('0.5degree.zip')
   }else{
     cat('Zip already extracted \n')
   }
