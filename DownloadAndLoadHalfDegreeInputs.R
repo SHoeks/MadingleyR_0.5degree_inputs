@@ -1,4 +1,4 @@
-load_spatial_inputs_0.5 = function(wd) 
+DownloadAndLoadHalfDegreeInputs = function(wd) 
 {
   
   if(substr(wd,(nchar(wd)+1)-1,nchar(wd))=='/')  wd=substr(wd,1,nchar(wd)-1)
